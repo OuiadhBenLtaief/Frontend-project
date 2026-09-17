@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Wild Explorers Kids Club - Gallery</title>
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="index.html" class="logo">🌿 Wild Explorers</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="activities.html">Activities</a></li>
+                <li><a href="camps.html">Camps</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content-section">
+        <h2>Activity Photo Gallery</h2>
+        <p class="section-intro">Click any photo to open it in full screen!</p>
+
+        <div class="gallery-grid">
+            <figure class="gallery-item">
+                <img src="images/activity-1.jpg" alt="Shelter Building Workshop" onclick="openLightbox(this.src, this.alt)">
+                <figcaption>Shelter Building Workshop</figcaption>
+            </figure>
+
+            <figure class="gallery-item">
+                <img src="images/activity-2.jpg" alt="Forest Bug & Plant Hunt" onclick="openLightbox(this.src, this.alt)">
+                <figcaption>Forest Bug & Plant Hunt</figcaption>
+            </figure>
+
+            <figure class="gallery-item">
+                <img src="images/activity-3.jpg" alt="Campfire Stories & Songs" onclick="openLightbox(this.src, this.alt)">
+                <figcaption>Campfire Stories & Songs</figcaption>
+            </figure>
+
+            <figure class="gallery-item">
+                <img src="images/activity-4.jpg" alt="Map & Orienteering Quest" onclick="openLightbox(this.src, this.alt)">
+                <figcaption>Map & Orienteering Quest</figcaption>
+            </figure>
+        </div>
+    </main>
+
+    <!-- Lightbox Modal Container -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" class="lightbox-content" alt="Enlarged view">
+        <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Wild Explorers Kids Club. Built with HTML & CSS.</p>
+    </footer>
+
+    <script>
+        function openLightbox(imageSrc, imageAlt) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+
+            lightboxImg.src = imageSrc;
+            lightboxImg.alt = imageAlt;
+            lightboxCaption.textContent = imageAlt;
+            lightbox.classList.add('active');
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+    </script>
+
+</body>
+</html>
